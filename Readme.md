@@ -77,4 +77,7 @@ A -> B = pending -> Accepted or rejected or ignored
 # what are node modules 
 - when we install express in our project we get node modules folder which has all the code which will suport our express in this particular project
 
-# nodemon :- npm i -g nodemon (automatically refresh)
+# nodemon :- npm i -g nodemon (automatically refresh) 
+- added node_modules to .gitignore to add code to github using git
+
+# Homework :- Explore *,?,+,regex,() and also regex with /.*fly$/
