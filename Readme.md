@@ -89,6 +89,13 @@ A -> B = pending -> Accepted or rejected or ignored
 # what is Middleware and how express js handles request behind the scene
 # app.use V/s app.all
 
+# connect firstly the database and then start the server 
+# create a cluster on mongoDb and connect the cluster to mongoDb compass
+# install mongoose using npm
+# connect db before server
+# create a userSchema and user model
+# create a post /signup api to send data to database and use postman
+
 
 # we can handle error using try ,catch and app.use()
 

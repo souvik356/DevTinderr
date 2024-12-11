@@ -1,58 +1,29 @@
-const { adminAuth,userAuth } = require('./middlewares/Auth')
 const express = require('express')
-
+const { connectDb } = require('../utils/Database')
 const app = express()
+const {User}= require('../src/models/User')
 
-//middleware
-
-// example of middleware
-
-// app.use('/admin',(req,res,next)=>{
-//    const token = "xyz"
-//    const isAuthorized = token === "xyz"
-//    if(!isAuthorized){
-//     res.status(401).send("Authorized access")
-//    }
-//    else{
-//     next()
-//    }
-// })
-
-// app.use('/admin', adminAuth)
-
-// app.use('/user',userAuth,(req,res)=>{
-//     try{
-//         throw new Error("nfd")
-//         res.status(200).send('sent users data')
-//     }catch(err){
-//        res.status(500).send("something went wrong please contact support team")
-//     }
-// })
-
-// app.get('/admin/getUsers',(req,res)=>{
-//     res.send('sent users data')
-// })
-
-// app.use('/admin/deleteUser',(req,res)=>{
-//     res.send('Deleted user data')
-// })
-
-// app.use('/',(err,req,res,next)=>{
-//    if(err){
-//     res.status(500).send("something went wrong")   //middlware
-//    }
-// })
-
-app.use('/user',(req,res,next)=>{
-   console.log('Souvik 1');
-   next()
+app.post('/signup',async (req,res)=>{
+   const userObj = {
+    firstName : "Sachin",
+    lastName: "Tendulkar",
+    emailID :"tendulkar@gmail.com",
+    password :"Sachin@123"
+   }
+   const user = new User(userObj)
+   await user.save().then(()=>{
+    res.send('User added succesfully')
+    console.log("Data stored in Database");
+   }).catch((err)=>{
+    console.error('Data is not saved');
+   })
 })
 
-app.use('/user',(req,res)=>{
-   res.send('Hi this is Souvik 2')
-})
-
-
-app.listen('7777', () => {
-    console.log('Server is running on port number 7777');
+connectDb().then(()=>{
+    console.log("Database connection succesful");
+    app.listen(3000,()=>{
+        console.log('succesfully connected to port number 3000');
+    })
+}).catch((err)=>{
+   console.error("Database connection is not succesful");
 })
