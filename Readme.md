@@ -81,3 +81,20 @@ A -> B = pending -> Accepted or rejected or ignored
 - added node_modules to .gitignore to add code to github using git
 
 # Homework :- Explore *,?,+,regex,() and also regex with /.*fly$/
+
+# Handling multiple route handler - playing with next()
+# app.use(()=> r1,r2,[r3,r4],r5)
+# the function we put in the middle are called middleware
+# response handler will send response to the server and the function before are middleware , these are just lingo
+# what is Middleware and how express js handles request behind the scene
+# app.use V/s app.all
+
+
+# we can handle error using try ,catch and app.use()
+
+// HTTP response status codes:-
+1) Informatoional responses - (100-199)
+2) Successful responses - (200-299)
+3) Redirection messages - (300-399)
+4) Client error responses - (400-499) 404 error ,401 - unauthorized acces
+5) Server error responses - (500-599)
